@@ -11,5 +11,5 @@ if os.path.exists("env.py"):
 
     db = SQLAlchemy(app)
 
-    from taskmanager import routes
+    from plantify import routes
     
