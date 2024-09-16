@@ -3,28 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Taviraj:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    {% block styles %}
+    {% endblock %}
     <title>Plantspire</title>
 </head>
 <body>
-   <header>
-    <nav class="light-green darken-3">
-        <div class="nav-wrapper">
-          <a href="#!" class="brand-logo">PLANTSPIRE</a>
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fa-solid fa-leaf">menu</i></a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="{{ url_for('home')}}">Home</a></li>
-          </ul>
+    <header>
+     <!-- Navbar -->
+     <nav id="navbar" class="navbar-pad row light-green darken-3">
+        <div class="nav-wrapper col s12 l8 offset-l2">
+            <a href="{{ url_for('home') }}" class="brand-logo btn light-green darken-3">Plantspire</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger left" aria-label="Menu">
+                <i class="fas fa-bars"></i></a>
+            <ul class="right hide-on-med-and-down nav-list btn light-green darken-3">
+                <li><a href="{{ url_for('get_recipes') }}">Recipes</a></li>
+                {% if session['user'] %}
+                <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
+                <li><a href="{{ url_for('get_categories') }}">Categories</a></li>
+                {% if session.user|lower == "admin"|lower %}
+                <li><a href="{{ url_for('add_category') }}">Add Category</a></li>
+                {% endif %}
+                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                {% else %}
+                <li><a href="{{ url_for('login') }}">Log In</a></li>
+                <li><a href="{{ url_for('register') }}">Sign Up</a></li>
+                {% endif %}
+            </ul>
         </div>
-      </nav>
-      <ul class="sidenav" id="mobile-demo">
-        <li><a href="{{ url_for('home')}}">Home</a></li>
-      </ul>    
-   </header>
+    </nav>
+
+    <!-- mobile sidenav -->
+    <ul class="sidenav light-green darken-3" id="mobile-demo">
+        <li>
+            <h4 class="center-align">Recipe Base</h4>
+        </li>
+        <li><a href="{{ url_for('get_recipes') }}"><i class="fas fa-rectangle-list prefix"></i>Recipes</a></li>
+        {% if session['user'] %}
+        <li><a href="{{ url_for('add_recipe') }}"><i class="fas fa-plus prefix"></i>Add Recipe</a></li>
+        <li><a href="{{ url_for('get_categories') }}"><i class="fas fa-table prefix"></i>Categories</a></li>
+        {% if session.user|lower == "admin"|lower %}
+        <li><a href="{{ url_for('add_category') }}"><i class="fas fa-plus prefix"></i>Add Category</a></li>
+        {% endif %}
+        <li><a href="{{ url_for('profile', username=session['user']) }}"><i
+                    class="fas fa-user prefix"></i>Profile</a></li>
+        <li><a href="{{ url_for('logout') }}"><i class="fas fa-right-from-bracket prefix"></i>Log Out</a></li>
+        {% else %}
+        <li><a href="{{ url_for('register') }}"><i class="fas fa-pen-clip prefix"></i>Sign Up</a></li>
+        <li><a href="{{ url_for('login') }}"><i class="fas fa-right-to-bracket prefix"></i>Log In</a></li>
+        {% endif %}
+    </ul>
+</header>
+
+<!-- main content -->
+<main class="container">
+    {% block content %}
+    {% endblock %}
+</main>
+
+<!-- footer -->
+<footer class="page-footer light-green darken-3">
+    <div class="container footer">
+        <div class="row">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% block scripts %}
+{% endblock %}
 </body>
 </html>
