@@ -1,5 +1,95 @@
 {% extends "base.html" %}
-
 {% block content %}
-<p>Register</p>
+
+<h3>Register Account</h3>
+<hr>
+
+<div class="row">
+    <form class="col s12 m8 offset-m2" method="post" action="{{ url_for('register') }}">
+        <div class="card-panel">
+
+            <!-- first name -->
+            <div class="row">
+                <div class="col s6">
+                    <label for="first_name">First name</label>
+                    <div class="input-field col s12">
+                        <input id="first_name" name="first_name" type="text" minlength="1" maxlength="30"
+                             class="validate" placeholder="Joe" required>
+                    </div>
+                </div>
+
+                <!-- last name -->
+                <div class="col s6">
+                    <label for="last_name">Last name</label>
+                    <div class="input-field col s12">
+                        <input id="last_name" name="last_name" type="text" minlength="1" maxlength="30"
+                             class="validate" placeholder="Bloggs" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- username -->
+            <div class="row">
+                <div class="col s12">
+                    <label for="username">Username</label>
+                    <div class="input-field col s12">
+                        <input id="username" name="username" type="text" minlength="3" maxlength="20"
+                             class="validate" placeholder="Plantchef24" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- password -->
+            <div class="row">
+                <div class="col s12">
+                    <label for="password">Password</label>
+                    <div class="input-field col s12">
+                        <input id="password" name="password" type="password" minlength="6" maxlength="10"
+                             class="validate" placeholder="123456" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- confirm password -->
+            <div class="row">
+                <div class="col s12">
+                    <label for="password2">Confirm Password</label>
+                    <div class="input-field col s12">
+                        <input id="password2" name="password2" type="password" minlength="6" maxlength="10"
+                             class="validate" placeholder="123456" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- email -->
+            <div class="row">
+                <div class="col s12">
+                    <label for="email">Email</label>
+                    <div class="input-field col s12">
+                        <input id="email" name="email" type="email" class="validate"
+                            placeholder="plantchef@outlook.com" required>
+                    </div>
+                </div>
+
+                <!-- submit button -->
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <button class="btn submit" type="submit">Sign Up
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- log in link -->
+    <div class="row">
+        <div class="col s12 question">
+            <p class="center-align">
+                Already have an account? <a href="{{ url_for('login') }}">Log In</a>
+            </p>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
