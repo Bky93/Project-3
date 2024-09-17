@@ -1,6 +1,45 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Welcome to Plantspire</h1>
-<p>This is your homepage content.</p>
+<div class="section">
+    <h1 class="center-align">Welcome to Plantspire!</h1>
+    <p class="center-align">Discover delicious plant-based recipes that inspire a healthier lifestyle.</p>
+    <div class="row">
+        <div class="col s12 m6">
+            <div class="card">
+                <div class="card-image">
+                    <img src="{{ url_for('static', filename='images/soup.jpg') }}" alt="Featured Recipe Image" class="responsive-img">
+                    <span class="card-title">Featured Recipe</span>
+                </div>
+                <div class="card-content">
+                    <p>Check out our featured recipe of the week that everyone is raving about!</p>
+                </div>
+                <div class="card-action">
+                    <a href="{{ url_for('get_recipes') }}" class="btn">See All Recipes</a>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m6">
+            <div class="card">
+                <div class="card-image">
+                    <img src="{{ url_for('static', filename='images/tacos.jpg') }}" alt="Plant Based Living" class="responsive-img">
+                    <span class="card-title">Plant-Based Living</span>
+                </div>
+                <div class="card-content">
+                    <p>Learn more about the benefits of a plant-based diet and how it can transform your health!</p>
+                </div>
+                <div class="card-action">
+                    <a href="{{ url_for('get_recipes') }}" class="btn">Discover More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 center-align">
+            <h3>Join Us!</h3>
+            <p>Sign up today to access exclusive recipes and tips!</p>
+            <a href="{{ url_for('register') }}" class="btn-large">Sign Up</a>
+        </div>
+    </div>
+</div>
 {% endblock %}

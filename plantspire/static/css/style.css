@@ -29,3 +29,30 @@ body {
 .modal-content {
     overflow-y: auto; 
 }
+
+footer {
+    height: 100px;
+  }
+
+  .socials {
+    text-align: center
+  }
+
+  .socials li {
+    display: inline;
+  }
+
+  .socials i {
+    font-size: 200%;
+    margin: 1%;
+    padding: 5%;
+    color: #074017;
+  }
+
+  .socials a {
+    text-decoration: none;
+  }
+
+  .container {
+    text-align: center;
+  }
