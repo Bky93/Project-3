@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="section">
+    <h1 class="center-align">Recipes</h1>
+    
+    <div class="row">
+        <!-- Recipe 1 -->
+        <div class="col s12 m6 l4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="{{ url_for('static', filename='images/lasagna.jpg') }}" alt="Plant based lasagna" class="recipe-img">
+                    <span class="card-title">Plant based Lasagna</span>
+                </div>
+                <div class="card-content">
+                    <p>A warming classic with a plant-based twist. Perfect for Dinner!</p>
+                </div>
+                <div class="card-action">
+                    <a href="#modal1" class="modal-trigger">View Recipe</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recipe 2 -->
+        <div class="col s12 m6 l4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="{{ url_for('static', filename='images/burger.jpg') }}" alt="Plant based burger" class="recipe-img">
+                    <span class="card-title">Plant based Burger</span>
+                </div>
+                <div class="card-content">
+                    <p>You can't go wrong with one of these any time of the year!</p>
+                </div>
+                <div class="card-action">
+                    <a href="#modal2" class="modal-trigger">View Recipe</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recipe 3 -->
+        <div class="col s12 m6 l4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="{{ url_for('static', filename='images/lentil-dahl.jpg') }}" alt="Lentil Dahl" class="recipe-img">
+                    <span class="card-title">Lentil Dahl</span>
+                </div>
+                <div class="card-content">
+                    <p>With this spicy Dahl your guests won't even notice it's plant-based!</p>
+                </div>
+                <div class="card-action">
+                    <a href="#modal3" class="modal-trigger">View Recipe</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal full-screen-modal">
+        <div class="modal-content">
+            <h4>Plant based Lasagna</h4>
+            <p>A delicious recipe with layers of plant-based goodness...</p>
+            <img src="{{ url_for('static', filename='images/lasagna.jpg') }}" alt="Plant based lasagna" class="responsive-img">
+            <p>Preparation instructions go here...</p>
+            <a href="#!" class="modal-close btn">Close</a>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal full-screen-modal">
+        <div class="modal-content">
+            <h4>Plant based Burger</h4>
+            <p>This classic plant-based burger recipe is irresistible...</p>
+            <img src="{{ url_for('static', filename='images/burger.jpg') }}" alt="Plant based burger" class="responsive-img">
+            <p>Preparation instructions go here...</p>
+            <a href="#!" class="modal-close btn">Close</a>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal full-screen-modal">
+        <div class="modal-content">
+            <h4>Lentil Dahl</h4>
+            <p>A spicy dahl that will wow your guests...</p>
+            <img src="{{ url_for('static', filename='images/lentil-dahl.jpg') }}" alt="Lentil Dahl" class="responsive-img">
+            <p>Preparation instructions go here...</p>
+            <a href="#!" class="modal-close btn">Close</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

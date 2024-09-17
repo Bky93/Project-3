@@ -8,4 +8,24 @@ body {
     padding-top: 13px;
 }
 
+.recipe-img {
+    height:300px;
+    width:150px;
+    padding:20px;
+}
 
+.full-screen-modal {
+    width: 90%; 
+    height: 90%; 
+    max-height: 90%; 
+    max-width: 90%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-content {
+    overflow-y: auto; 
+}
