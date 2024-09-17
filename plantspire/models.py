@@ -32,4 +32,4 @@ class Categories(db.Model):
     categories = db.Column("categories", db.Text)
 
     def __init__(self, categories):
-        self.categories = categories
+        self.categori
